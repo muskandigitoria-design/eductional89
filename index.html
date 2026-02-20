@@ -11,13 +11,13 @@
     
     <style>
         :root {
-            /* LUXURY GOLD & EMERALD PALETTE */
-            --primary-accent: #ffcc00; /* Deep Gold */
-            --secondary-accent: #00ff88; /* Success Green */
-            --glow-color: rgba(255, 204, 0, 0.4);
-            --bg-dark: #020a05; /* Deep Emerald Black */
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 204, 0, 0.2);
+            /* CYBER SAPPHIRE PALETTE */
+            --primary-accent: #00d2ff; /* Electric Blue */
+            --secondary-accent: #3a7bd5; /* Deep Sapphire */
+            --glow-color: rgba(0, 210, 255, 0.5);
+            --bg-dark: #00040a; /* True Deep Black */
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(0, 210, 255, 0.3);
         }
 
         * {
@@ -39,16 +39,16 @@
             align-items: center;
         }
 
-        /* --- BACKGROUND ELEMENTS --- */
+        /* --- HIGH-TECH BACKGROUND --- */
         .bg-elements {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #051a0e 0%, #020a05 100%);
+            background: radial-gradient(circle at 50% 50%, #001529 0%, #00040a 100%);
         }
 
-        /* Floating Symbols */
+        /* Floating Tech Particles */
         .symbol {
             position: absolute;
             color: var(--primary-accent);
@@ -56,65 +56,81 @@
             font-weight: 800;
             user-select: none;
             pointer-events: none;
-            animation: floatUp 10s infinite linear;
+            animation: floatUp 12s infinite linear;
         }
 
         @keyframes floatUp {
-            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.15; }
-            90% { opacity: 0.15; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+            0% { transform: translateY(110vh) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.2; }
+            90% { opacity: 0.2; }
+            100% { transform: translateY(-10vh) translateX(20px) rotate(360deg); opacity: 0; }
         }
 
         .orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.4;
-            animation: drift 15s infinite alternate ease-in-out;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: drift 20s infinite alternate ease-in-out;
         }
 
-        .orb-1 { width: 400px; height: 400px; background: #004422; top: -10%; left: -10%; }
-        .orb-2 { width: 350px; height: 350px; background: var(--primary-accent); bottom: -5%; right: -5%; opacity: 0.15; }
-        .orb-3 { width: 300px; height: 300px; background: #22c55e; top: 40%; left: 30%; opacity: 0.1; }
+        .orb-1 { width: 500px; height: 500px; background: var(--secondary-accent); top: -20%; right: -10%; }
+        .orb-2 { width: 400px; height: 400px; background: #003366; bottom: -10%; left: -10%; opacity: 0.2; }
 
         @keyframes drift {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(60px, 80px) scale(1.2); }
+            100% { transform: translate(40px, 40px) scale(1.1); }
         }
 
-        /* --- MAIN CARD --- */
+        /* --- MAIN HOLOGRAPHIC CARD --- */
         .main-card {
             width: 92%;
-            max-width: 420px;
-            background: rgba(10, 20, 15, 0.8);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            max-width: 410px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
             border: 1px solid var(--glass-border);
-            border-radius: 35px;
-            padding: 45px 25px 35px;
+            border-radius: 40px;
+            padding: 50px 30px 40px;
             text-align: center;
             position: relative;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.7), inset 0 0 20px rgba(255,204,0,0.05);
+            box-shadow: 0 0 40px rgba(0, 210, 255, 0.1), inset 0 0 20px rgba(255,255,255,0.02);
             z-index: 10;
+        }
+
+        /* Holographic Ring Animation */
+        .main-card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, transparent, var(--primary-accent), transparent);
+            border-radius: 42px;
+            z-index: -1;
+            animation: rotate-border 4s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes rotate-border {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
         }
 
         /* --- LOGO SECTION --- */
         .logo-container {
             position: relative;
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 20px;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px;
         }
 
         .logo-glow {
             position: absolute;
-            top: -5px; left: -5px; width: 120px; height: 120px;
-            background: linear-gradient(45deg, var(--primary-accent), var(--secondary-accent));
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--primary-accent);
             border-radius: 50%;
-            filter: blur(15px);
-            opacity: 0.6;
-            animation: pulse-glow 3s infinite;
+            filter: blur(20px);
+            opacity: 0.4;
+            animation: logo-pulse 3s infinite alternate;
         }
 
         .logo-img {
@@ -122,83 +138,90 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--primary-accent);
+            border: 2px solid #fff;
             position: relative;
             z-index: 2;
+            box-shadow: 0 0 20px var(--glow-color);
         }
 
-        @keyframes pulse-glow {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+        @keyframes logo-pulse {
+            from { transform: scale(1); opacity: 0.3; }
+            to { transform: scale(1.2); opacity: 0.6; }
         }
 
         /* --- TEXT STYLES --- */
         h1 {
-            font-size: 1.7rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 8px;
-            background: linear-gradient(to right, #fff, var(--primary-accent));
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            background: linear-gradient(to bottom, #fff 40%, var(--primary-accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
         }
 
         .badge {
             display: inline-block;
-            background: linear-gradient(90deg, #b8860b, var(--primary-accent));
-            color: #000;
-            padding: 6px 16px;
+            background: rgba(0, 210, 255, 0.15);
+            color: var(--primary-accent);
+            border: 1px solid var(--primary-accent);
+            padding: 6px 18px;
             border-radius: 100px;
-            font-size: 0.7rem;
-            font-weight: 800;
+            font-size: 0.75rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+            margin-bottom: 25px;
+            backdrop-filter: blur(5px);
         }
 
-        /* --- STATS --- */
+        /* --- STATS GRID --- */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin: 25px 0;
+            gap: 15px;
+            margin: 30px 0;
         }
 
         .stat-card {
-            background: rgba(255,255,255,0.03);
-            padding: 12px 5px;
-            border-radius: 18px;
-            border: 1px solid rgba(255,204,0,0.1);
-            transition: 0.3s;
+            background: rgba(255,255,255,0.04);
+            padding: 15px 5px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.4s;
         }
 
         .stat-card:hover {
-            border-color: var(--secondary-accent);
-            background: rgba(0, 255, 136, 0.05);
+            border-color: var(--primary-accent);
+            background: rgba(0, 210, 255, 0.08);
+            transform: translateY(-5px);
         }
 
         .stat-card span {
             display: block;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 800;
-            color: var(--secondary-accent);
+            color: #fff;
+            text-shadow: 0 0 10px var(--glow-color);
         }
 
         .stat-card label {
-            font-size: 0.55rem;
+            font-size: 0.6rem;
             text-transform: uppercase;
-            opacity: 0.6;
+            opacity: 0.5;
             letter-spacing: 1px;
+            margin-top: 4px;
+            display: block;
         }
 
         /* --- BUTTON --- */
         .btn-join {
             width: 100%;
-            background: linear-gradient(135deg, var(--primary-accent) 0%, #ffaa00 100%);
-            color: #000;
-            padding: 20px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+            color: #fff;
+            padding: 22px;
+            border-radius: 22px;
             text-decoration: none;
             font-weight: 800;
             font-size: 1.1rem;
@@ -206,30 +229,32 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 25px var(--glow-color);
-            margin-top: 10px;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4);
+            margin-top: 15px;
+            text-transform: uppercase;
         }
 
         .btn-join:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 35px var(--glow-color);
+            transform: scale(1.04);
+            box-shadow: 0 15px 40px rgba(0, 210, 255, 0.6);
+            letter-spacing: 1px;
         }
 
-        /* --- TIMER --- */
+        /* --- REDIRECT TIMER --- */
         .redirect-bar {
             width: 100%;
-            height: 5px;
-            background: rgba(255,255,255,0.1);
+            height: 4px;
+            background: rgba(255,255,255,0.05);
             border-radius: 10px;
-            margin-top: 30px;
+            margin-top: 35px;
             overflow: hidden;
         }
 
         .progress {
             height: 100%;
             width: 100%;
-            background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+            background: linear-gradient(90deg, transparent, var(--primary-accent), #fff);
             transform-origin: left;
             animation: shrink 3s linear forwards;
         }
@@ -240,16 +265,22 @@
         }
 
         .footer-info {
-            margin-top: 25px;
-            font-size: 0.7rem;
-            opacity: 0.5;
-            letter-spacing: 1px;
+            margin-top: 30px;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.8;
         }
 
         .footer-info a {
             color: var(--primary-accent);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+        }
+        
+        .footer-info a:hover {
+            border-color: var(--primary-accent);
         }
 
     </style>
@@ -259,7 +290,6 @@
     <div class="bg-elements" id="bg-container">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
     </div>
 
     <div class="main-card">
@@ -268,10 +298,10 @@
             <img src="https://hopeforchange.fun/wp-content/uploads/2026/02/trraae.jpg" class="logo-img" alt="Karol Trading">
         </div>
 
-        <div class="badge">SEBI Registered Expert</div>
+        <div class="badge">✦ SEBI Registered ✦</div>
         
         <h1>TRADING WITH KAROL</h1>
-        <p style="opacity: 0.8; font-size: 0.9rem; line-height: 1.4;">Master the Markets with Institutional SMC & High-Accuracy Signals</p>
+        <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.5;">Master Institutional SMC & Precision Market Entry</p>
 
         <div class="stats-grid">
             <div class="stat-card">
@@ -289,40 +319,40 @@
         </div>
 
         <a href="https://t.me/+VBOwLIt3ojpmOGVl" class="btn-join">
-            JOIN VIP CHANNEL
+            GET VIP ACCESS
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
 
         <div class="redirect-bar">
             <div class="progress"></div>
         </div>
-        <p id="timer-label" style="font-size: 0.65rem; margin-top: 10px; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px;">
-            Redirecting in <span id="seconds" style="color: var(--primary-accent); font-weight: bold;">3</span>s
+        <p id="timer-label" style="font-size: 0.7rem; margin-top: 12px; opacity: 0.5; text-transform: uppercase; letter-spacing: 2px;">
+            Hurry! Entry closing in <span id="seconds" style="color: var(--primary-accent); font-weight: bold;">3</span>s
         </p>
 
         <div class="footer-info">
-            ✦ 18+ | TRADE RESPONSIBLY ✦<br>
-            ADS BY <a href="https://telegram.me/+TRlJl628l-FkMWE9">NEXGROWW AGENCY</a>
+            ✦ NO COMPROMISE ON RISK ✦<br>
+            ADS MANAGED BY <a href="https://telegram.me/+TRlJl628l-FkMWE9">NEXGROWW AGENCY</a>
         </div>
     </div>
 
     <script>
-        // --- ADDING BACKGROUND ELEMENTS (SYMBOLS) ---
+        // --- ADDING DYNAMIC BACKGROUND ELEMENTS ---
         const bgContainer = document.getElementById('bg-container');
-        const symbols = ['$', '₹', '📈', '💹', '💎'];
+        const symbols = ['$', '₹', '📈', '💹', '💎', '•'];
         
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 20; i++) {
             const el = document.createElement('div');
             el.className = 'symbol';
             el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
             el.style.left = Math.random() * 100 + 'vw';
-            el.style.fontSize = Math.random() * 20 + 15 + 'px';
-            el.style.animationDuration = Math.random() * 5 + 8 + 's';
+            el.style.fontSize = Math.random() * 15 + 10 + 'px';
+            el.style.animationDuration = Math.random() * 5 + 7 + 's';
             el.style.animationDelay = Math.random() * 5 + 's';
             bgContainer.appendChild(el);
         }
 
-        // --- ORIGINAL REDIRECT SCRIPT ---
+        // --- REDIRECT LOGIC ---
         let timeLeft = 3;
         const targetURL = "https://t.me/+VBOwLIt3ojpmOGVl";
         const secondsSpan = document.getElementById('seconds');
