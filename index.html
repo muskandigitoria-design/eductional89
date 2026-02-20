@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +11,13 @@
     
     <style>
         :root {
-            /* NEW ATTRACTIVE COLOR PALETTE */
-            --primary-accent: #00f2ff; /* Electric Cyan */
-            --secondary-accent: #7000ff; /* Royal Purple */
-            --glow-color: rgba(0, 242, 255, 0.4);
-            --bg-dark: #05020a; /* Ultra Deep Purple Black */
+            /* LUXURY GOLD & EMERALD PALETTE */
+            --primary-accent: #ffcc00; /* Deep Gold */
+            --secondary-accent: #00ff88; /* Success Green */
+            --glow-color: rgba(255, 204, 0, 0.4);
+            --bg-dark: #020a05; /* Deep Emerald Black */
             --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.12);
+            --glass-border: rgba(255, 204, 0, 0.2);
         }
 
         * {
@@ -40,26 +39,44 @@
             align-items: center;
         }
 
-        /* --- VIBRANT ANIMATED BACKGROUND --- */
+        /* --- BACKGROUND ELEMENTS --- */
         .bg-elements {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #120524 0%, #05020a 100%);
+            background: radial-gradient(circle at 50% 50%, #051a0e 0%, #020a05 100%);
+        }
+
+        /* Floating Symbols */
+        .symbol {
+            position: absolute;
+            color: var(--primary-accent);
+            opacity: 0.1;
+            font-weight: 800;
+            user-select: none;
+            pointer-events: none;
+            animation: floatUp 10s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
         .orb {
             position: absolute;
             border-radius: 50%;
             filter: blur(100px);
-            opacity: 0.5;
+            opacity: 0.4;
             animation: drift 15s infinite alternate ease-in-out;
         }
 
-        .orb-1 { width: 400px; height: 400px; background: var(--secondary-accent); top: -10%; left: -10%; }
-        .orb-2 { width: 350px; height: 350px; background: var(--primary-accent); bottom: -5%; right: -5%; opacity: 0.2; }
-        .orb-3 { width: 300px; height: 300px; background: #ff00c8; top: 40%; left: 30%; opacity: 0.1; }
+        .orb-1 { width: 400px; height: 400px; background: #004422; top: -10%; left: -10%; }
+        .orb-2 { width: 350px; height: 350px; background: var(--primary-accent); bottom: -5%; right: -5%; opacity: 0.15; }
+        .orb-3 { width: 300px; height: 300px; background: #22c55e; top: 40%; left: 30%; opacity: 0.1; }
 
         @keyframes drift {
             0% { transform: translate(0, 0) scale(1); }
@@ -70,7 +87,7 @@
         .main-card {
             width: 92%;
             max-width: 420px;
-            background: var(--glass);
+            background: rgba(10, 20, 15, 0.8);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             border: 1px solid var(--glass-border);
@@ -78,7 +95,7 @@
             padding: 45px 25px 35px;
             text-align: center;
             position: relative;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7), inset 0 0 20px rgba(255,204,0,0.05);
             z-index: 10;
         }
 
@@ -105,7 +122,7 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #fff;
+            border: 3px solid var(--primary-accent);
             position: relative;
             z-index: 2;
         }
@@ -128,16 +145,16 @@
 
         .badge {
             display: inline-block;
-            background: linear-gradient(90deg, var(--secondary-accent), #9d50bb);
-            color: #fff;
+            background: linear-gradient(90deg, #b8860b, var(--primary-accent));
+            color: #000;
             padding: 6px 16px;
             border-radius: 100px;
             font-size: 0.7rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(112, 0, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
         }
 
         /* --- STATS --- */
@@ -149,23 +166,23 @@
         }
 
         .stat-card {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.03);
             padding: 12px 5px;
             border-radius: 18px;
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,204,0,0.1);
             transition: 0.3s;
         }
 
         .stat-card:hover {
-            border-color: var(--primary-accent);
-            background: rgba(0, 242, 255, 0.05);
+            border-color: var(--secondary-accent);
+            background: rgba(0, 255, 136, 0.05);
         }
 
         .stat-card span {
             display: block;
             font-size: 1.1rem;
             font-weight: 800;
-            color: var(--primary-accent);
+            color: var(--secondary-accent);
         }
 
         .stat-card label {
@@ -178,7 +195,7 @@
         /* --- BUTTON --- */
         .btn-join {
             width: 100%;
-            background: linear-gradient(135deg, var(--primary-accent) 0%, #00a8ff 100%);
+            background: linear-gradient(135deg, var(--primary-accent) 0%, #ffaa00 100%);
             color: #000;
             padding: 20px;
             border-radius: 20px;
@@ -212,7 +229,7 @@
         .progress {
             height: 100%;
             width: 100%;
-            background: linear-gradient(90deg, var(--secondary-accent), var(--primary-accent));
+            background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
             transform-origin: left;
             animation: shrink 3s linear forwards;
         }
@@ -225,7 +242,7 @@
         .footer-info {
             margin-top: 25px;
             font-size: 0.7rem;
-            opacity: 0.4;
+            opacity: 0.5;
             letter-spacing: 1px;
         }
 
@@ -239,7 +256,7 @@
 </head>
 <body>
 
-    <div class="bg-elements">
+    <div class="bg-elements" id="bg-container">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
         <div class="orb orb-3"></div>
@@ -290,6 +307,22 @@
     </div>
 
     <script>
+        // --- ADDING BACKGROUND ELEMENTS (SYMBOLS) ---
+        const bgContainer = document.getElementById('bg-container');
+        const symbols = ['$', '₹', '📈', '💹', '💎'];
+        
+        for (let i = 0; i < 15; i++) {
+            const el = document.createElement('div');
+            el.className = 'symbol';
+            el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.fontSize = Math.random() * 20 + 15 + 'px';
+            el.style.animationDuration = Math.random() * 5 + 8 + 's';
+            el.style.animationDelay = Math.random() * 5 + 's';
+            bgContainer.appendChild(el);
+        }
+
+        // --- ORIGINAL REDIRECT SCRIPT ---
         let timeLeft = 3;
         const targetURL = "https://t.me/+VBOwLIt3ojpmOGVl";
         const secondsSpan = document.getElementById('seconds');
