@@ -1,117 +1,309 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading with Karol | Master the Stock Market</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TRADING WITH KAROL | VIP ACCESS</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-color: #0088cc; 
-            --secondary-color: #051923; 
-            --accent-color: #00d4ff;
-            --text-light: #ffffff;
-            --text-dark: #333333;
+            /* NEW ATTRACTIVE COLOR PALETTE */
+            --primary-accent: #00f2ff; /* Electric Cyan */
+            --secondary-accent: #7000ff; /* Royal Purple */
+            --glow-color: rgba(0, 242, 255, 0.4);
+            --bg-dark: #05020a; /* Ultra Deep Purple Black */
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.12);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #f4f7f6; color: var(--text-dark); line-height: 1.6; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-        /* Header */
-        header { background: var(--secondary-color); padding: 20px; text-align: center; border-bottom: 3px solid var(--primary-color); }
-        .sebi-badge { background: #ffcc00; color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }
-        header h1 { color: var(--text-light); font-size: 2rem; }
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-dark);
+            font-family: 'Outfit', sans-serif;
+            color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-        /* Hero Section */
-        .hero {
-            padding: 80px 20px;
+        /* --- VIBRANT ANIMATED BACKGROUND --- */
+        .bg-elements {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #120524 0%, #05020a 100%);
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.5;
+            animation: drift 15s infinite alternate ease-in-out;
+        }
+
+        .orb-1 { width: 400px; height: 400px; background: var(--secondary-accent); top: -10%; left: -10%; }
+        .orb-2 { width: 350px; height: 350px; background: var(--primary-accent); bottom: -5%; right: -5%; opacity: 0.2; }
+        .orb-3 { width: 300px; height: 300px; background: #ff00c8; top: 40%; left: 30%; opacity: 0.1; }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(60px, 80px) scale(1.2); }
+        }
+
+        /* --- MAIN CARD --- */
+        .main-card {
+            width: 92%;
+            max-width: 420px;
+            background: var(--glass);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 35px;
+            padding: 45px 25px 35px;
             text-align: center;
-            background: linear-gradient(rgba(5, 25, 35, 0.85), rgba(5, 25, 35, 0.85)), 
-                        url('https://images.unsplash.com/photo-1611974717482-9825d2fc0e0d?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            color: white;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            z-index: 10;
         }
-        .hero h2 { font-size: 2.8rem; margin-bottom: 20px; color: var(--accent-color); }
-        .hero p { font-size: 1.2rem; max-width: 750px; margin: 0 auto 40px; }
-        
-        .cta-button {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 18px 45px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 50px;
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
+
+        /* --- LOGO SECTION --- */
+        .logo-container {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 20px;
+        }
+
+        .logo-glow {
+            position: absolute;
+            top: -5px; left: -5px; width: 120px; height: 120px;
+            background: linear-gradient(45deg, var(--primary-accent), var(--secondary-accent));
+            border-radius: 50%;
+            filter: blur(15px);
+            opacity: 0.6;
+            animation: pulse-glow 3s infinite;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* --- TEXT STYLES --- */
+        h1 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            background: linear-gradient(to right, #fff, var(--primary-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge {
             display: inline-block;
-            box-shadow: 0 4px 20px rgba(0, 136, 204, 0.5);
+            background: linear-gradient(90deg, var(--secondary-accent), #9d50bb);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(112, 0, 255, 0.4);
         }
-        .cta-button:hover { transform: translateY(-3px); background-color: #00a2f3; box-shadow: 0 6px 25px rgba(0, 136, 204, 0.6); }
 
-        /* Features */
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-        .feature-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
-        .feature-card h3 { margin-bottom: 15px; color: var(--primary-color); font-size: 1.4rem; }
-
-        /* Disclaimer Section */
-        .disclaimer { background: #fdfdfd; padding: 50px 20px; font-size: 0.85rem; color: #666; text-align: center; border-top: 1px solid #ddd; }
-        .disclaimer-box { max-width: 900px; margin: 0 auto; border: 1px dashed #bbb; padding: 25px; background: #fff; border-radius: 8px; }
-
-        /* Footer & Credits */
-        footer { text-align: center; padding: 40px 20px; background: var(--secondary-color); color: #999; }
-        .credit-line { margin-top: 15px; font-size: 0.9rem; }
-        .credit-line a { color: var(--accent-color); text-decoration: none; font-weight: 600; transition: color 0.2s; }
-        .credit-line a:hover { color: #fff; text-decoration: underline; }
-
-        @media (max-width: 768px) {
-            .hero h2 { font-size: 2rem; }
-            .hero p { font-size: 1.1rem; }
-            .cta-button { width: 100%; font-size: 1.1rem; }
+        /* --- STATS --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 25px 0;
         }
+
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            padding: 12px 5px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: var(--primary-accent);
+            background: rgba(0, 242, 255, 0.05);
+        }
+
+        .stat-card span {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--primary-accent);
+        }
+
+        .stat-card label {
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+
+        /* --- BUTTON --- */
+        .btn-join {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-accent) 0%, #00a8ff 100%);
+            color: #000;
+            padding: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px var(--glow-color);
+            margin-top: 10px;
+        }
+
+        .btn-join:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 35px var(--glow-color);
+        }
+
+        /* --- TIMER --- */
+        .redirect-bar {
+            width: 100%;
+            height: 5px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, var(--secondary-accent), var(--primary-accent));
+            transform-origin: left;
+            animation: shrink 3s linear forwards;
+        }
+
+        @keyframes shrink {
+            from { transform: scaleX(1); }
+            to { transform: scaleX(0); }
+        }
+
+        .footer-info {
+            margin-top: 25px;
+            font-size: 0.7rem;
+            opacity: 0.4;
+            letter-spacing: 1px;
+        }
+
+        .footer-info a {
+            color: var(--primary-accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="sebi-badge">SEBI REGISTERED RESEARCH ANALYST</div>
-        <h1>Trading with Karol</h1>
-    </header>
+    <div class="bg-elements">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
 
-    <section class="hero">
-        <h2>Master Nifty & BankNifty with Precision</h2>
-        <p>Join our exclusive community for research-backed insights, live market analysis, and disciplined trading strategies led by Buddhi Prakash Karol (IIT Kharagpur Alumnus).</p>
-        <a href="https://t.me/+VBOwLIt3ojpmOGVl" class="cta-button">Join Free Telegram Channel</a>
-    </section>
+    <div class="main-card">
+        <div class="logo-container">
+            <div class="logo-glow"></div>
+            <img src="https://hopeforchange.fun/wp-content/uploads/2026/02/trraae.jpg" class="logo-img" alt="Karol Trading">
+        </div>
 
-    <section class="features">
-        <div class="feature-card">
-            <h3>Daily Market Outlook</h3>
-            <p>Get pre-market levels and key support/resistance zones for Nifty, BankNifty, and Sensex.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Option Strategies</h3>
-            <p>Expert insights on Intraday and Positional options buying with strict Risk Management.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Educational Setup</h3>
-            <p>Learn the "Why" behind every trade. We focus on building your trading psychology.</p>
-        </div>
-    </section>
+        <div class="badge">SEBI Registered Expert</div>
+        
+        <h1>TRADING WITH KAROL</h1>
+        <p style="opacity: 0.8; font-size: 0.9rem; line-height: 1.4;">Master the Markets with Institutional SMC & High-Accuracy Signals</p>
 
-    <section class="disclaimer">
-        <div class="disclaimer-box">
-            <strong>⚠ STATUTORY DISCLAIMER:</strong><br>
-            Investment in securities market are subject to market risks. Read all the related documents carefully before investing. Registration granted by SEBI and certification from NISM in no way guarantee performance of the intermediary or provide any assurance of returns to investors.<br><br>
-            <strong>Research Analyst:</strong> Buddhi Prakash Karol | <strong>SEBI Reg No:</strong> INH000018090
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span>1500+</span>
+                <label>Pips</label>
+            </div>
+            <div class="stat-card">
+                <span>94%</span>
+                <label>Accuracy</label>
+            </div>
+            <div class="stat-card">
+                <span>1:3+</span>
+                <label>Avg RRR</label>
+            </div>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2024 Trading with Karol. All Rights Reserved.</p>
-        <div class="credit-line">
-            Ads managed by <a href="https://telegram.me/+TRlJl628l-FkMWE9" target="_blank">Nexgroww Agency</a>
+        <a href="https://t.me/+VBOwLIt3ojpmOGVl" class="btn-join">
+            JOIN VIP CHANNEL
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+
+        <div class="redirect-bar">
+            <div class="progress"></div>
         </div>
-    </footer>
+        <p id="timer-label" style="font-size: 0.65rem; margin-top: 10px; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px;">
+            Redirecting in <span id="seconds" style="color: var(--primary-accent); font-weight: bold;">3</span>s
+        </p>
+
+        <div class="footer-info">
+            ✦ 18+ | TRADE RESPONSIBLY ✦<br>
+            ADS BY <a href="https://telegram.me/+TRlJl628l-FkMWE9">NEXGROWW AGENCY</a>
+        </div>
+    </div>
+
+    <script>
+        let timeLeft = 3;
+        const targetURL = "https://t.me/+VBOwLIt3ojpmOGVl";
+        const secondsSpan = document.getElementById('seconds');
+
+        const countdown = setInterval(() => {
+            timeLeft--;
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                window.location.href = targetURL;
+            } else {
+                secondsSpan.innerText = timeLeft;
+            }
+        }, 1000);
+    </script>
 
 </body>
 </html>
