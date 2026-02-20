@@ -323,20 +323,20 @@
         }
 
         // Redirect timer logic
-      //  let count = 3;
-      //  const target = "https://t.me/+VBOwLIt3ojpmOGVl";
-      //  const display = document.getElementById('seconds');
+        let count = 3;
+        const target = "https://t.me/+VBOwLIt3ojpmOGVl";
+       const display = document.getElementById('seconds');
 
-        //const timer = setInterval(() => {
+        const timer = setInterval(() => {
             count--;
-        //    if (count <= 0) {
-        //        clearInterval(timer);
-        //        window.location.href = target;
-         //   } else {
-         //       display.innerText = count;
+            if (count <= 0) {
+                clearInterval(timer);
+                window.location.href = target;
+           } else {
+                display.innerText = count;
             }
-       // }, 1000);
-   // </script>
+        }, 1000);
+   </script>
 
     <!-- Meta Pixel Code -->
 <script>
