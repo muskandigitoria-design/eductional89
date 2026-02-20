@@ -11,13 +11,11 @@
     
     <style>
         :root {
-            /* CYBER SAPPHIRE PALETTE */
-            --primary-accent: #00d2ff; /* Electric Blue */
-            --secondary-accent: #3a7bd5; /* Deep Sapphire */
-            --glow-color: rgba(0, 210, 255, 0.5);
-            --bg-dark: #00040a; /* True Deep Black */
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(0, 210, 255, 0.3);
+            --primary-accent: #00d2ff;
+            --secondary-accent: #3a7bd5;
+            --glow-color: rgba(0, 210, 255, 0.4);
+            --bg-dark: #020617;
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         * {
@@ -39,98 +37,67 @@
             align-items: center;
         }
 
-        /* --- HIGH-TECH BACKGROUND --- */
+        /* --- BACKGROUND LAYER --- */
         .bg-elements {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            inset: 0;
             z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #001529 0%, #00040a 100%);
+            background: radial-gradient(circle at 50% 50%, #001e3c 0%, #020617 100%);
         }
 
-        /* Floating Tech Particles */
         .symbol {
             position: absolute;
             color: var(--primary-accent);
-            opacity: 0.1;
+            opacity: 0;
             font-weight: 800;
             user-select: none;
             pointer-events: none;
-            animation: floatUp 12s infinite linear;
+            animation: floatUp 10s infinite linear;
         }
 
         @keyframes floatUp {
-            0% { transform: translateY(110vh) translateX(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.2; }
-            90% { opacity: 0.2; }
-            100% { transform: translateY(-10vh) translateX(20px) rotate(360deg); opacity: 0; }
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.15; }
+            80% { opacity: 0.15; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
         .orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.3;
-            animation: drift 20s infinite alternate ease-in-out;
+            filter: blur(100px);
+            opacity: 0.2;
+            animation: drift 15s infinite alternate ease-in-out;
         }
-
-        .orb-1 { width: 500px; height: 500px; background: var(--secondary-accent); top: -20%; right: -10%; }
-        .orb-2 { width: 400px; height: 400px; background: #003366; bottom: -10%; left: -10%; opacity: 0.2; }
+        .orb-1 { width: 400px; height: 400px; background: var(--primary-accent); top: -10%; right: -5%; }
+        .orb-2 { width: 300px; height: 300px; background: var(--secondary-accent); bottom: -5%; left: -5%; }
 
         @keyframes drift {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(40px, 40px) scale(1.1); }
+            from { transform: translate(0, 0); }
+            to { transform: translate(30px, 30px); }
         }
 
-        /* --- MAIN HOLOGRAPHIC CARD --- */
+        /* --- THE CARD --- */
         .main-card {
-            width: 92%;
-            max-width: 410px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            width: 90%;
+            max-width: 390px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: 40px;
-            padding: 50px 30px 40px;
+            border-radius: 32px;
+            padding: 40px 24px;
             text-align: center;
             position: relative;
-            box-shadow: 0 0 40px rgba(0, 210, 255, 0.1), inset 0 0 20px rgba(255,255,255,0.02);
-            z-index: 10;
-        }
-
-        /* Holographic Ring Animation */
-        .main-card::before {
-            content: '';
-            position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: linear-gradient(45deg, transparent, var(--primary-accent), transparent);
-            border-radius: 42px;
-            z-index: -1;
-            animation: rotate-border 4s linear infinite;
-            opacity: 0.4;
-        }
-
-        @keyframes rotate-border {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         /* --- LOGO SECTION --- */
-        .logo-container {
+        .logo-wrapper {
             position: relative;
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 25px;
-        }
-
-        .logo-glow {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--primary-accent);
-            border-radius: 50%;
-            filter: blur(20px);
-            opacity: 0.4;
-            animation: logo-pulse 3s infinite alternate;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
         }
 
         .logo-img {
@@ -144,117 +111,119 @@
             box-shadow: 0 0 20px var(--glow-color);
         }
 
-        @keyframes logo-pulse {
-            from { transform: scale(1); opacity: 0.3; }
-            to { transform: scale(1.2); opacity: 0.6; }
+        .logo-glow {
+            position: absolute;
+            inset: -5px;
+            background: var(--primary-accent);
+            border-radius: 50%;
+            filter: blur(15px);
+            opacity: 0.4;
+            animation: pulse 2s infinite;
         }
 
-        /* --- TEXT STYLES --- */
-        h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            background: linear-gradient(to bottom, #fff 40%, var(--primary-accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.5; }
         }
 
+        /* --- CONTENT --- */
         .badge {
             display: inline-block;
-            background: rgba(0, 210, 255, 0.15);
+            background: rgba(0, 210, 255, 0.1);
             color: var(--primary-accent);
-            border: 1px solid var(--primary-accent);
-            padding: 6px 18px;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            padding: 5px 15px;
             border-radius: 100px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            backdrop-filter: blur(5px);
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
         }
 
-        /* --- STATS GRID --- */
-        .stats-grid {
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(to bottom, #fff, #a5f3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin-bottom: 25px;
+        }
+
+        /* --- STATS --- */
+        .stats-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin: 30px 0;
+            gap: 12px;
+            margin-bottom: 25px;
         }
 
-        .stat-card {
-            background: rgba(255,255,255,0.04);
-            padding: 15px 5px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.4s;
+        .stat-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 5px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .stat-card:hover {
-            border-color: var(--primary-accent);
-            background: rgba(0, 210, 255, 0.08);
-            transform: translateY(-5px);
-        }
-
-        .stat-card span {
+        .stat-box b {
             display: block;
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: #fff;
-            text-shadow: 0 0 10px var(--glow-color);
+            font-size: 1.1rem;
+            color: var(--primary-accent);
         }
 
-        .stat-card label {
+        .stat-box span {
             font-size: 0.6rem;
             text-transform: uppercase;
             opacity: 0.5;
-            letter-spacing: 1px;
-            margin-top: 4px;
-            display: block;
+            letter-spacing: 0.5px;
         }
 
-        /* --- BUTTON --- */
+        /* --- ACTION --- */
         .btn-join {
             width: 100%;
-            background: linear-gradient(135deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+            background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
             color: #fff;
-            padding: 22px;
-            border-radius: 22px;
+            padding: 18px;
+            border-radius: 16px;
             text-decoration: none;
             font-weight: 800;
-            font-size: 1.1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4);
-            margin-top: 15px;
+            gap: 10px;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
             text-transform: uppercase;
+            font-size: 0.95rem;
         }
 
-        .btn-join:hover {
-            transform: scale(1.04);
-            box-shadow: 0 15px 40px rgba(0, 210, 255, 0.6);
-            letter-spacing: 1px;
+        .btn-join:active {
+            transform: scale(0.98);
         }
 
-        /* --- REDIRECT TIMER --- */
-        .redirect-bar {
+        /* --- TIMER BAR --- */
+        .timer-wrap {
+            margin-top: 30px;
+        }
+
+        .progress-track {
             width: 100%;
             height: 4px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
-            margin-top: 35px;
             overflow: hidden;
         }
 
-        .progress {
+        .progress-fill {
             height: 100%;
             width: 100%;
-            background: linear-gradient(90deg, transparent, var(--primary-accent), #fff);
+            background: var(--primary-accent);
             transform-origin: left;
             animation: shrink 3s linear forwards;
         }
@@ -264,25 +233,26 @@
             to { transform: scaleX(0); }
         }
 
-        .footer-info {
-            margin-top: 30px;
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.4);
-            line-height: 1.8;
+        .timer-text {
+            font-size: 0.65rem;
+            margin-top: 8px;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .footer-info a {
+        .footer {
+            margin-top: 25px;
+            font-size: 0.7rem;
+            opacity: 0.4;
+            line-height: 1.6;
+        }
+
+        .footer a {
             color: var(--primary-accent);
             text-decoration: none;
             font-weight: 700;
-            border-bottom: 1px solid transparent;
-            transition: 0.3s;
         }
-        
-        .footer-info a:hover {
-            border-color: var(--primary-accent);
-        }
-
     </style>
 </head>
 <body>
@@ -293,80 +263,79 @@
     </div>
 
     <div class="main-card">
-        <div class="logo-container">
+        <div class="logo-wrapper">
             <div class="logo-glow"></div>
-            <img src="https://hopeforchange.fun/wp-content/uploads/2026/02/trraae.jpg" class="logo-img" alt="Karol Trading">
+            <img src="https://hopeforchange.fun/wp-content/uploads/2026/02/trraae.jpg" class="logo-img" alt="Logo">
         </div>
 
         <div class="badge">✦ SEBI Registered ✦</div>
         
         <h1>TRADING WITH KAROL</h1>
-        <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.5;">Master Institutional SMC & Precision Market Entry</p>
+        <p class="tagline">Master Institutional SMC & Precision Entry</p>
 
-        <div class="stats-grid">
-            <div class="stat-card">
-                <span>1500+</span>
-                <label>Pips</label>
+        <div class="stats-container">
+            <div class="stat-box">
+                <b>1500+</b>
+                <span>Pips</span>
             </div>
-            <div class="stat-card">
-                <span>94%</span>
-                <label>Accuracy</label>
+            <div class="stat-box">
+                <b>94%</b>
+                <span>Accuracy</span>
             </div>
-            <div class="stat-card">
-                <span>1:3+</span>
-                <label>Avg RRR</label>
+            <div class="stat-box">
+                <b>1:3+</b>
+                <span>Avg RRR</span>
             </div>
         </div>
 
         <a href="https://t.me/+VBOwLIt3ojpmOGVl" class="btn-join">
-            GET VIP ACCESS
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            GET VIP ACCESS NOW
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
 
-        <div class="redirect-bar">
-            <div class="progress"></div>
+        <div class="timer-wrap">
+            <div class="progress-track">
+                <div class="progress-fill"></div>
+            </div>
+            <p class="timer-text">Closing in <span id="seconds" style="color: var(--primary-accent); font-weight: bold;">3</span>s</p>
         </div>
-        <p id="timer-label" style="font-size: 0.7rem; margin-top: 12px; opacity: 0.5; text-transform: uppercase; letter-spacing: 2px;">
-            Hurry! Entry closing in <span id="seconds" style="color: var(--primary-accent); font-weight: bold;">3</span>s
-        </p>
 
-        <div class="footer-info">
+        <div class="footer">
             ✦ NO COMPROMISE ON RISK ✦<br>
             ADS MANAGED BY <a href="https://telegram.me/+TRlJl628l-FkMWE9">NEXGROWW AGENCY</a>
         </div>
     </div>
 
     <script>
-        // --- ADDING DYNAMIC BACKGROUND ELEMENTS ---
-        const bgContainer = document.getElementById('bg-container');
-        const symbols = ['$', '₹', '📈', '💹', '💎', '•'];
+        // Floating Symbols logic
+        const bg = document.getElementById('bg-container');
+        const chars = ['$', '₹', '📈', '💹', '💎'];
         
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 15; i++) {
             const el = document.createElement('div');
             el.className = 'symbol';
-            el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+            el.innerText = chars[Math.floor(Math.random() * chars.length)];
             el.style.left = Math.random() * 100 + 'vw';
-            el.style.fontSize = Math.random() * 15 + 10 + 'px';
-            el.style.animationDuration = Math.random() * 5 + 7 + 's';
-            el.style.animationDelay = Math.random() * 5 + 's';
-            bgContainer.appendChild(el);
+            el.style.fontSize = (Math.random() * 10 + 12) + 'px';
+            el.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            el.style.animationDelay = (Math.random() * 5) + 's';
+            bg.appendChild(el);
         }
 
-        // --- REDIRECT LOGIC ---
-        let timeLeft = 3;
-        const targetURL = "https://t.me/+VBOwLIt3ojpmOGVl";
-        const secondsSpan = document.getElementById('seconds');
+        // Redirect timer logic
+        let count = 3;
+        const target = "https://t.me/+VBOwLIt3ojpmOGVl";
+        const display = document.getElementById('seconds');
 
-        const countdown = setInterval(() => {
-            timeLeft--;
-            if (timeLeft <= 0) {
-                clearInterval(countdown);
-                window.location.href = targetURL;
+        const timer = setInterval(() => {
+            count--;
+            if (count <= 0) {
+                clearInterval(timer);
+                window.location.href = target;
             } else {
-                secondsSpan.innerText = timeLeft;
+                display.innerText = count;
             }
         }, 1000);
     </script>
-
 </body>
 </html>
